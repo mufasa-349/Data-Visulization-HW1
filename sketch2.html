@@ -11,8 +11,12 @@
         .year-label { font-size: 16px; fill: #2c3e50; font-weight: bold; }
         .data-value { font-size: 10px; font-weight: bold; fill: #444; pointer-events: none; }
         .footer { font-size: 11px; fill: #95a5a6; }
-        .tooltip { position: absolute; background: rgba(255,255,255,0.95); border: 1px solid #ddd; padding: 10px; border-radius: 4px; pointer-events: none; font-size: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: none; }
+        .tooltip { position: absolute; background: rgba(255,255,255,0.98); border: 1px solid #ccc; padding: 12px 14px; border-radius: 6px; pointer-events: none; font-size: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: none; z-index: 10; max-width: 280px; }
         .legend-label { font-size: 12px; fill: #2c3e50; }
+        .legend-item { cursor: pointer; }
+        .legend-item:hover rect { stroke-width: 2; stroke: #333; }
+        .layer-path, .pop-wedge { cursor: pointer; transition: stroke-width 0.15s, opacity 0.15s; }
+        .layer-path:hover { filter: brightness(1.05); }
     </style>
 </head>
 <body>
@@ -31,11 +35,27 @@
         ];
 
         const width = 1000, height = 1100;
+        const centerX = width / 2, centerY = height / 2 + 50;
         const svg = d3.select("#viz").append("svg")
             .attr("width", width)
             .attr("height", height)
             .append("g")
-            .attr("transform", `translate(${width/2},${height/2 + 50})`);
+            .attr("transform", `translate(${centerX},${centerY})`);
+
+        // Tooltip helpers (position relative to #viz)
+        const tooltip = d3.select("#tooltip");
+        function showTooltip(html, event) {
+            const rect = document.getElementById("viz").getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            tooltip.style("display", "block")
+                .style("left", (rect.left + Math.min(x + 14, rect.width - 290)) + "px")
+                .style("top", (rect.top + Math.max(y - 10, 0)) + "px")
+                .html(html);
+        }
+        function hideTooltip() {
+            tooltip.style("display", "none");
+        }
 
         // Scales
         const angleScale = d3.scaleLinear().domain([0, data.length]).range([0, 2 * Math.PI]);
@@ -60,16 +80,18 @@
             .radius(d => scale(d[key]))
             .curve(d3.curveLinearClosed);
 
+        const arcWedge = d3.arc()
+            .innerRadius(0)
+            .outerRadius(d => rPop(d.pop))
+            .startAngle((d, i) => angleScale(i) - 0.22)
+            .endAngle((d, i) => angleScale(i) + 0.22);
+
         // 1. Population Wedges (Grey)
-        svg.selectAll(".pop-wedge")
+        const wedges = svg.selectAll(".pop-wedge")
             .data(data).enter().append("path")
+            .attr("class", "pop-wedge")
             .attr("fill", "#707d8c")
-            .attr("d", d3.arc()
-                .innerRadius(0)
-                .outerRadius(d => rPop(d.pop))
-                .startAngle((d, i) => angleScale(i) - 0.22)
-                .endAngle((d, i) => angleScale(i) + 0.22)
-            );
+            .attr("d", arcWedge);
 
         // 2. Indicators (Layered Polygons)
         const layers = [
@@ -78,13 +100,25 @@
             { key: 'unemp', scale: rUnemp, fill: "#bcdff1aa", stroke: "#3498db", label: "Unemployment" }
         ];
 
+        const layerPaths = [];
         layers.forEach(layer => {
-            svg.append("path")
+            const path = svg.append("path")
                 .datum(data)
+                .attr("class", `layer-path layer-${layer.key}`)
                 .attr("fill", layer.fill)
                 .attr("stroke", layer.stroke)
                 .attr("stroke-width", 2)
-                .attr("d", radarPath(layer.key, layer.scale));
+                .attr("d", radarPath(layer.key, layer.scale))
+                .on("mouseover", function(event, d) {
+                    d3.select(this).raise().attr("stroke-width", 4);
+                    const rows = d.map(x => `<strong>${x.year}:</strong> ${layer.key === 'gdp' ? '$' + Math.round(x[layer.key]/1000) + 'k' : x[layer.key] + (layer.key === 'unemp' || layer.key === 'infl' ? '%' : '')}`).join("<br/>");
+                    showTooltip(`<strong>${layer.label}</strong><br/>${rows}`, event);
+                })
+                .on("mouseout", function() {
+                    d3.select(this).attr("stroke-width", 2);
+                    hideTooltip();
+                });
+            layerPaths.push({ key: layer.key, path });
 
             // Add Numerical Values on the Nodes
             data.forEach((d, i) => {
@@ -108,6 +142,23 @@
             .attr("y", (d, i) => -460 * Math.cos(angleScale(i)) + 5)
             .text(d => d.year);
 
+        // Invisible wedge overlays for hover (on top)
+        svg.selectAll(".wedge-overlay")
+            .data(data).enter().append("path")
+            .attr("class", "wedge-overlay")
+            .attr("d", arcWedge)
+            .attr("fill", "none")
+            .attr("stroke", "none")
+            .attr("pointer-events", "all")
+            .style("cursor", "pointer")
+            .on("mouseover", function(event, d) {
+                const pop = (d.pop / 1e6).toFixed(2) + "M";
+                const gdp = "$" + Math.round(d.gdp/1000) + "k";
+                const html = `<strong>${d.year}</strong><br/>Unemployment: ${d.unemp}%<br/>Inflation: ${d.infl}%<br/>GDP/capita: ${gdp}<br/>Population: ${pop}`;
+                showTooltip(html, event);
+            })
+            .on("mouseout", hideTooltip);
+
         // Header
         const rootSvg = d3.select("svg");
 
@@ -116,22 +167,25 @@
             .style("font-size", "24px").style("font-weight", "bold")
             .text("Socio-Economic Dynamics: Turkey (2019-2024)");
 
-        // Legend explaining colors
+        // Legend explaining colors (with keys for highlight)
         const legendData = [
-            { color: "#707d8c", label: "Population (wedge size)" },
-            { color: "#2ecc71", label: "GDP per capita (green area)" },
-            { color: "#e67e22", label: "Inflation (orange area)" },
-            { color: "#3498db", label: "Unemployment (blue area)" }
+            { color: "#707d8c", label: "Population (wedge size)", key: "pop" },
+            { color: "#2ecc71", label: "GDP per capita (green area)", key: "gdp" },
+            { color: "#e67e22", label: "Inflation (orange area)", key: "infl" },
+            { color: "#3498db", label: "Unemployment (blue area)", key: "unemp" }
         ];
 
         const legend = rootSvg.append("g")
             .attr("transform", `translate(${width/2 - 260}, 80)`);
 
-        legend.selectAll("rect")
+        const legendItems = legend.selectAll(".legend-item")
             .data(legendData)
             .enter()
-            .append("rect")
-            .attr("x", (d, i) => i * 180)
+            .append("g")
+            .attr("class", "legend-item")
+            .attr("transform", (d, i) => `translate(${i * 180}, 0)`);
+
+        legendItems.append("rect")
             .attr("y", -10)
             .attr("width", 16)
             .attr("height", 16)
@@ -139,14 +193,25 @@
             .attr("stroke", "#555")
             .attr("stroke-width", 1);
 
-        legend.selectAll("text")
-            .data(legendData)
-            .enter()
-            .append("text")
+        legendItems.append("text")
             .attr("class", "legend-label")
-            .attr("x", (d, i) => i * 180 + 24)
+            .attr("x", 24)
             .attr("y", 3)
             .text(d => d.label);
+
+        legendItems.on("mouseover", function(event, d) {
+            if (d.key === "pop") {
+                wedges.attr("opacity", 1);
+                svg.selectAll(".layer-path").attr("opacity", 0.45);
+            } else {
+                wedges.attr("opacity", 0.5);
+                svg.selectAll(".layer-path").attr("opacity", 0.45);
+                svg.select(`.layer-${d.key}`).raise().attr("opacity", 1).attr("stroke-width", 4);
+            }
+        }).on("mouseout", function() {
+            wedges.attr("opacity", 1);
+            svg.selectAll(".layer-path").attr("opacity", 1).attr("stroke-width", 2);
+        });
 
     </script>
 </body>
