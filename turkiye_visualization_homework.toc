@@ -1,0 +1,22 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Dataset Description}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Scope of the Study}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Population Data Used}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Average Population Values Used in Some Sketches}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Socio-Economic Indicators from TÜİK}{3}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Task 1: Hand-Drawn Exploratory Sketches}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Task 1A: Türkiye Map with City-Based Time Series}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Task 1B: Three Socio-Economic Indicators as Line Charts}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Task 1C: Formulated Question}{5}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Task 2: Three Visualization Sketches}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Sketch 1: Multi-Line Comparison View}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Sketch 2: Map-Based or Small-Multiple Analytical View}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Sketch 3: Abstract Visualization}{8}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Task 3: Implemented Visualization}{8}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Chosen Visualization}{9}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Implementation Details}{9}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}GitHub Repository}{9}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Screenshots of the Final Visualization}{9}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Implementation Reflection}{10}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Discussion}{10}{section.6}%
+\contentsline {section}{\numberline {7}Conclusion}{10}{section.7}%
