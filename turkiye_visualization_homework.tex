@@ -302,40 +302,50 @@ This type of visualization can be useful in exploratory analysis or presentation
 \end{itemize}
 
 % -------------------------
-\subsection{Sketch 3: Abstract Visualization}
+\subsection{Sketch 3: Abstract Concentric Trend Visualization}
 
 \begin{figure}[H]
+\centering
+\begin{subfigure}{0.47\textwidth}
     \centering
-    \fbox{\rule{0pt}{2.4in}\rule{0.9\textwidth}{0pt}}
-    \caption{Placeholder for Sketch 3 image. Insert the abstract sketch here.}
-    \label{fig:sketch3}
+    \includegraphics[width=\linewidth,angle=90]{sketches-images/Task2-Sketch3.jpeg}
+    \caption{Hand-drawn abstract sketch exploring layered temporal relationships.}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.47\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{sketches-images/Sketch3-abstract-code.png}
+    \caption{Programmatically generated abstract radial visualization.}
+\end{subfigure}
+\caption{Abstract concentric visualization combining population trends of major cities with national socio-economic indicators between 2019 and 2024.}
+\label{fig:sketch3}
 \end{figure}
 
-\textbf{Visualization type:} \placeholder{Example: radial chart / abstract layered composition / symbolic encoding}
+\textbf{Visualization type:} Abstract concentric radial visualization with layered encoding
 
-\textbf{Goal:} \placeholder{Explain what this sketch tries to reveal.}
+\textbf{Goal:}  
+The goal of this visualization is to present the relationship between population growth in major Turkish cities and national economic indicators in a more conceptual and exploratory way. Instead of focusing on exact numeric comparison, the visualization emphasizes the overall patterns and relative differences between variables over time.
 
 \textbf{Design rationale:}
 
-\placeholder{Explain how the abstract design encodes the data, which visual channels it uses, and why abstraction may help show patterns, contrast, rhythm, or relative change. Mention trade-offs between memorability and precision if relevant.}
+This design uses a concentric radial structure where each circular layer represents a different data category. The inner layers encode national socio-economic indicators such as unemployment rate and inflation, while outer layers represent population-related measures for major cities. Time is encoded using angular segments around the circle, creating a circular timeline from 2019 to 2024. Variations in color, texture, and radial distance are used as visual channels to differentiate indicators and emphasize changes over time. This layered abstraction allows multiple datasets to be visually integrated without relying on traditional Cartesian axes, encouraging viewers to perceive relationships between economic conditions and demographic growth patterns.
 
 \textbf{Where this could be useful:}
 
-\placeholder{Write where or for whom this visualization would be useful.}
+This type of visualization could be useful in exploratory analysis, storytelling dashboards, or presentations where the goal is to communicate overall patterns rather than precise values. It can also attract attention in interactive data visualizations where engaging visual forms help communicate complex multi-variable relationships.
 
 \textbf{Strengths:}
 \begin{itemize}[leftmargin=1.5em]
-    \item \placeholder{Strength 1}
-    \item \placeholder{Strength 2}
-    \item \placeholder{Strength 3}
+    \item Integrates multiple datasets within a single compact visual structure.
+    \item Encourages holistic pattern recognition rather than focusing only on precise values.
+    \item Visually distinctive and engaging, which can help communicate complex relationships.
 \end{itemize}
 
 \textbf{Weaknesses:}
 \begin{itemize}[leftmargin=1.5em]
-    \item \placeholder{Weakness 1}
-    \item \placeholder{Weakness 2}
+    \item Abstract representations may make precise quantitative comparison difficult.
+    \item Interpretation may require additional explanation compared to traditional charts.
 \end{itemize}
-
 % =========================================================
 \section{Task 3: Implemented Visualization}
 
