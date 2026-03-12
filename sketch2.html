@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Turkey Socio-Economic Radial Chart - Numerical Data</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; background-color: #ffffff; margin: 0; }
+        .axis-line { stroke: #e0e0e0; stroke-dasharray: 4,4; stroke-width: 1px; }
+        .grid-circle { fill: none; stroke: #f0f0f0; stroke-width: 1; }
+        .year-label { font-size: 16px; fill: #2c3e50; font-weight: bold; }
+        .data-value { font-size: 10px; font-weight: bold; fill: #444; pointer-events: none; }
+        .footer { font-size: 11px; fill: #95a5a6; }
+        .tooltip { position: absolute; background: rgba(255,255,255,0.95); border: 1px solid #ddd; padding: 10px; border-radius: 4px; pointer-events: none; font-size: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: none; }
+    </style>
+</head>
+<body>
+    <div id="tooltip" class="tooltip"></div>
+    <div id="viz"></div>
+
+    <script>
+        // Data containing all numerical values
+        const data = [
+            { year: 2019, unemp: 13.7, infl: 11.84, gdp: 9127,  pop: 4980572 },
+            { year: 2020, unemp: 13.2, infl: 14.60, gdp: 8555,  pop: 5021550 },
+            { year: 2021, unemp: 12.0, infl: 36.08, gdp: 9592,  pop: 5073257 },
+            { year: 2022, unemp: 10.4, infl: 62.93, gdp: 10655, pop: 5100555 },
+            { year: 2023, unemp: 9.4,  infl: 64.0,  gdp: 13243, pop: 5067263 },
+            { year: 2024, unemp: 8.6,  infl: 44.38, gdp: 15325, pop: 5089889 }
+        ];
+
+        const width = 900, height = 900;
+        const svg = d3.select("#viz").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", `translate(${width/2},${height/2 + 20})`);
+
+        // Scales
+        const angleScale = d3.scaleLinear().domain([0, data.length]).range([0, 2 * Math.PI]);
+        const rUnemp = d3.scaleLinear().domain([0, 15]).range([0, 100]);
+        const rInfl = d3.scaleLinear().domain([0, 70]).range([0, 220]);
+        const rGDP = d3.scaleLinear().domain([0, 16000]).range([0, 320]);
+        const rPop = d3.scaleLinear().domain([4900000, 5200000]).range([200, 420]);
+
+        // Draw Year Axes and Background
+        data.forEach((d, i) => {
+            const angle = angleScale(i);
+            svg.append("line")
+                .attr("class", "axis-line")
+                .attr("x1", 0).attr("y1", 0)
+                .attr("x2", 420 * Math.sin(angle))
+                .attr("y2", -420 * Math.cos(angle));
+        });
+
+        // Polygon Path Generator
+        const radarPath = (key, scale) => d3.lineRadial()
+            .angle((d, i) => angleScale(i))
+            .radius(d => scale(d[key]))
+            .curve(d3.curveLinearClosed);
+
+        // 1. Population Wedges (Grey)
+        svg.selectAll(".pop-wedge")
+            .data(data).enter().append("path")
+            .attr("fill", "#707d8c")
+            .attr("d", d3.arc()
+                .innerRadius(0)
+                .outerRadius(d => rPop(d.pop))
+                .startAngle((d, i) => angleScale(i) - 0.22)
+                .endAngle((d, i) => angleScale(i) + 0.22)
+            );
+
+        // 2. Indicators (Layered Polygons)
+        const layers = [
+            { key: 'gdp', scale: rGDP, fill: "#b7e9ccaa", stroke: "#2ecc71", label: "GDP" },
+            { key: 'infl', scale: rInfl, fill: "#f3cdabaa", stroke: "#e67e22", label: "Inflation" },
+            { key: 'unemp', scale: rUnemp, fill: "#bcdff1aa", stroke: "#3498db", label: "Unemployment" }
+        ];
+
+        layers.forEach(layer => {
+            svg.append("path")
+                .datum(data)
+                .attr("fill", layer.fill)
+                .attr("stroke", layer.stroke)
+                .attr("stroke-width", 2)
+                .attr("d", radarPath(layer.key, layer.scale));
+
+            // Add Numerical Values on the Nodes
+            data.forEach((d, i) => {
+                const angle = angleScale(i);
+                const radius = layer.scale(d[layer.key]);
+                svg.append("text")
+                    .attr("class", "data-value")
+                    .attr("x", radius * Math.sin(angle))
+                    .attr("y", -radius * Math.cos(angle) - 5)
+                    .attr("text-anchor", "middle")
+                    .text(layer.key === 'gdp' ? `$${Math.round(d[layer.key]/1000)}k` : d[layer.key]);
+            });
+        });
+
+        // 3. Year Labels (The "Numerical" anchor)
+        svg.selectAll(".year-label")
+            .data(data).enter().append("text")
+            .attr("class", "year-label")
+            .attr("text-anchor", "middle")
+            .attr("x", (d, i) => 460 * Math.sin(angleScale(i)))
+            .attr("y", (d, i) => -460 * Math.cos(angleScale(i)) + 5)
+            .text(d => d.year);
+
+        // Header
+        d3.select("svg").append("text")
+            .attr("x", width/2).attr("y", 50).attr("text-anchor", "middle")
+            .style("font-size", "24px").style("font-weight", "bold")
+            .text("Socio-Economic Dynamics: Turkey (2019-2024)");
+
+    </script>
+</body>
+</html>
