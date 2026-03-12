@@ -12,6 +12,7 @@
         .data-value { font-size: 10px; font-weight: bold; fill: #444; pointer-events: none; }
         .footer { font-size: 11px; fill: #95a5a6; }
         .tooltip { position: absolute; background: rgba(255,255,255,0.95); border: 1px solid #ddd; padding: 10px; border-radius: 4px; pointer-events: none; font-size: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: none; }
+        .legend-label { font-size: 12px; fill: #2c3e50; }
     </style>
 </head>
 <body>
@@ -29,12 +30,12 @@
             { year: 2024, unemp: 8.6,  infl: 44.38, gdp: 15325, pop: 5089889 }
         ];
 
-        const width = 900, height = 900;
+        const width = 1000, height = 1100;
         const svg = d3.select("#viz").append("svg")
             .attr("width", width)
             .attr("height", height)
             .append("g")
-            .attr("transform", `translate(${width/2},${height/2 + 20})`);
+            .attr("transform", `translate(${width/2},${height/2 + 50})`);
 
         // Scales
         const angleScale = d3.scaleLinear().domain([0, data.length]).range([0, 2 * Math.PI]);
@@ -108,10 +109,44 @@
             .text(d => d.year);
 
         // Header
-        d3.select("svg").append("text")
+        const rootSvg = d3.select("svg");
+
+        rootSvg.append("text")
             .attr("x", width/2).attr("y", 50).attr("text-anchor", "middle")
             .style("font-size", "24px").style("font-weight", "bold")
             .text("Socio-Economic Dynamics: Turkey (2019-2024)");
+
+        // Legend explaining colors
+        const legendData = [
+            { color: "#707d8c", label: "Population (wedge size)" },
+            { color: "#2ecc71", label: "GDP per capita (green area)" },
+            { color: "#e67e22", label: "Inflation (orange area)" },
+            { color: "#3498db", label: "Unemployment (blue area)" }
+        ];
+
+        const legend = rootSvg.append("g")
+            .attr("transform", `translate(${width/2 - 260}, 80)`);
+
+        legend.selectAll("rect")
+            .data(legendData)
+            .enter()
+            .append("rect")
+            .attr("x", (d, i) => i * 180)
+            .attr("y", -10)
+            .attr("width", 16)
+            .attr("height", 16)
+            .attr("fill", d => d.color)
+            .attr("stroke", "#555")
+            .attr("stroke-width", 1);
+
+        legend.selectAll("text")
+            .data(legendData)
+            .enter()
+            .append("text")
+            .attr("class", "legend-label")
+            .attr("x", (d, i) => i * 180 + 24)
+            .attr("y", 3)
+            .text(d => d.label);
 
     </script>
 </body>
