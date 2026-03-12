@@ -256,38 +256,49 @@ This visualization could be useful for policymakers, economists, or researchers 
     \item Too many variables could reduce readability and visual clarity.
 \end{itemize}
 % -------------------------
-\subsection{Sketch 2: Map-Based or Small-Multiple Analytical View}
+\subsection{Sketch 2: Radial Socio-Economic Pattern View}
 
 \begin{figure}[H]
+\centering
+\begin{subfigure}{0.47\textwidth}
     \centering
-    \fbox{\rule{0pt}{2.4in}\rule{0.9\textwidth}{0pt}}
-    \caption{Placeholder for Sketch 2 image. Insert the hand-drawn or digital sketch here.}
-    \label{fig:sketch2}
+    \includegraphics[width=\linewidth,angle=90]{sketches-images/Task2-Sketch2.jpeg}
+    \caption{Hand-drawn sketch of the radial visualization concept.}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.47\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{sketches-images/skecth2-code-generated.png}
+    \caption{Programmatically generated version used to clarify the design.}
+\end{subfigure}
+\caption{Radial visualization representing the relationship between socio-economic indicators and urban population trends across the years 2019–2024.}
+\label{fig:sketch2}
 \end{figure}
 
-\textbf{Visualization type:} \placeholder{Example: annotated map / small multiples / linked view}
+\textbf{Visualization type:} Radial (polar) multi-variable comparison chart
 
-\textbf{Goal:} \placeholder{Explain what this sketch tries to reveal.}
+\textbf{Goal:}  
+The goal of this visualization is to represent the evolution of socio-economic indicators and urban population trends in a circular timeline. By arranging the years around a radial axis, the visualization allows viewers to observe how different indicators change relative to each other across time.
 
 \textbf{Design rationale:}
 
-\placeholder{Explain why this visual form supports geographic context, comparison across cities, or simultaneous reading of multiple variables. Mention visual hierarchy, spatial layout, alignment, direct labeling, or other relevant terms from class.}
+This visualization uses a radial layout to emphasize the cyclical and comparative nature of temporal data. Each year is encoded as an angular segment around the circle, while the magnitude of each indicator is represented by radial distance from the center. Different indicators are encoded using color and line shapes, allowing viewers to distinguish between unemployment rate, inflation, GDP per capita, and average population. The radial bars represent the population index, while layered polygonal lines represent economic indicators. This design uses spatial position and color as visual channels to encode quantitative differences and enables comparison of patterns across years.
 
 \textbf{Where this could be useful:}
 
-\placeholder{Write where or for whom this visualization would be useful.}
+This type of visualization can be useful in exploratory analysis or presentations where the goal is to highlight patterns or relationships between multiple indicators in a compact visual form. It may also help audiences quickly compare different years and identify unusual economic changes.
 
 \textbf{Strengths:}
 \begin{itemize}[leftmargin=1.5em]
-    \item \placeholder{Strength 1}
-    \item \placeholder{Strength 2}
-    \item \placeholder{Strength 3}
+    \item Provides an intuitive overview of multiple variables in a single compact layout.
+    \item Makes it easier to compare the relative magnitude of indicators across years.
+    \item Visually distinctive representation that highlights patterns and spikes.
 \end{itemize}
 
 \textbf{Weaknesses:}
 \begin{itemize}[leftmargin=1.5em]
-    \item \placeholder{Weakness 1}
-    \item \placeholder{Weakness 2}
+    \item Radial charts can be harder to interpret precisely compared to linear charts.
+    \item Comparing exact values across different angles may be less intuitive for viewers.
 \end{itemize}
 
 % -------------------------
