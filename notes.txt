@@ -1,0 +1,33 @@
+Techniques from the slides that are used in the HTML
+1. Quantitative visual encoding
+The slides describe quantitative visualization as mapping data attributes into visual variables and spatial position. In your HTML, this is clearly happening:
+angle/position encodes year
+radius encodes numerical magnitude
+color distinguishes variables
+area/size is used for the population wedges
+This matches the slide’s idea that visualizations use spatial mappings and visual variables to communicate data. 
+2. Node size / size as meaning
+In the layout-generation part of the slides, node size is used to represent actor prominence. Your HTML does something very similar, just with a different dataset:
+larger population wedge radius means larger population
+larger polygon radius means larger value for GDP, inflation, or unemployment
+So the technique of encoding importance/value by size is definitely used. 
+3. Circular / radial layout
+One slide explains a layout where nodes are positioned on circular orbits in hyperbolic space. Your chart is also fundamentally organized around a circular radial structure:
+years are placed around a circle
+axes radiate from the center
+values extend outward from the center
+It is not the same mathematical model as HTLM, but the radial-orbit arrangement is clearly related. 
+4. Layering of multiple variables in one view
+The slides emphasize combining information into one visual language and using visualizations to reveal relationships efficiently. Your HTML overlays:
+population wedges
+GDP polygon
+inflation polygon
+unemployment polygon
+That is a layered multi-variable representation in a single canvas, which fits the “combine information space and visualization space” idea from the slides. 
+5. Labels and legend for readability
+The lecture frames visualization as a communication tool, not just graphics. Your HTML includes:
+year labels
+numeric labels on nodes
+a legend
+a title
+These are not fancy algorithms, but they are part of the slide’s broader visualization principle: making the message readable and understandable.
