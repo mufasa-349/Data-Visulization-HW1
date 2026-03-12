@@ -350,45 +350,77 @@ This type of visualization could be useful in exploratory analysis, storytelling
 % =========================================================
 \section{Task 3: Implemented Visualization}
 
-For the implementation stage, one of the three visualization concepts was selected and coded as a standalone HTML file with embedded JavaScript.
+For the implementation stage, the second visualization concept (the radial socio-economic comparison visualization) was selected and implemented as an interactive web-based visualization. The implementation was developed as a standalone HTML file named \texttt{sketch2.html}, which contains embedded JavaScript using the D3.js visualization library.
 
 \subsection{Chosen Visualization}
 
-\placeholder{Write which sketch you selected and why you selected it for implementation.}
+The radial multi-indicator visualization (Sketch 2) was selected for implementation because it allows multiple variables to be represented in a single integrated view while maintaining a clear temporal structure. The circular layout enables each year between 2019 and 2024 to be positioned around a central axis, making it easier to compare how different indicators evolve over time.
+
+In addition, the radial structure makes it possible to visually combine population growth and national socio-economic indicators within the same graphical space. This design helps reveal possible relationships between demographic change and economic conditions.
 
 \subsection{Implementation Details}
 
 \begin{itemize}[leftmargin=1.5em]
-    \item \textbf{Technology used:} \placeholder{Example: HTML, CSS, JavaScript, D3.js}
-    \item \textbf{File structure:} \placeholder{Example: single standalone HTML file}
-    \item \textbf{Interaction techniques used:} \placeholder{Example: hover tooltips, highlighting, legends, labels}
-    \item \textbf{Visual encoding:} \placeholder{Brief summary of how variables are represented}
+    \item \textbf{Technology used:} HTML, CSS, JavaScript, and the D3.js (v7) visualization library.
+    
+    \item \textbf{File structure:} The visualization is implemented as a single standalone file called \texttt{sketch2.html}. All styling, data, and JavaScript code are embedded within this file, allowing it to be opened directly in a web browser without additional dependencies.
+    
+    \item \textbf{Interaction techniques used:}
+    \begin{itemize}
+        \item Hover tooltips that display numerical values for each year.
+        \item Interactive highlighting of indicators through the legend.
+        \item Mouseover effects that emphasize selected data layers.
+        \item Interactive wedges that reveal detailed information about each year.
+    \end{itemize}
+    
+    \item \textbf{Visual encoding:}
+    \begin{itemize}
+        \item Years (2019–2024) are encoded as angular positions around the circle.
+        \item Population values are represented by radial wedge size.
+        \item GDP per capita, inflation, and unemployment are encoded as layered radial polygons.
+        \item Color is used to differentiate indicators (green for GDP, orange for inflation, blue for unemployment).
+        \item Radial distance from the center encodes the magnitude of each variable.
+    \end{itemize}
 \end{itemize}
 
 \subsection{GitHub Repository}
 
-The implementation can be found at the link provided on the title page.
+The implementation code is provided as a standalone HTML file and is available in the GitHub repository linked on the title page of this report.
 
 \subsection{Screenshots of the Final Visualization}
 
-\begin{figure}[H]
-    \centering
-    \fbox{\rule{0pt}{2.5in}\rule{0.9\textwidth}{0pt}}
-    \caption{Placeholder for screenshot of the implemented visualization.}
-    \label{fig:implementation1}
-\end{figure}
 
 \begin{figure}[H]
     \centering
-    \fbox{\rule{0pt}{2.5in}\rule{0.9\textwidth}{0pt}}
-    \caption{Placeholder for an additional screenshot, such as interaction state, tooltip, or focused view.}
+    \includegraphics[width=0.85\textwidth,height=0.45\textheight,keepaspectratio]{sketches-images/html-visual.png}
+    \caption{Example interaction state of the visualization (e.g., tooltip or highlighted indicator layer).}
     \label{fig:implementation2}
 \end{figure}
 
 \subsection{Implementation Reflection}
 
-\placeholder{Write a short reflection about whether the coded version successfully answered the research question, what worked well, and what could still be improved.}
+The implemented visualization successfully integrates multiple socio-economic indicators and population data into a single interactive representation. The radial design makes it possible to observe how economic indicators and population trends evolve over time within the same visual structure.
 
+Interactive elements such as hover tooltips and legend highlighting improve usability by allowing users to inspect specific values and focus on individual indicators. This helps the visualization answer the research question by making temporal patterns and potential relationships between demographic and economic changes easier to observe.
+
+However, while the radial format is visually engaging and effective for pattern recognition, it may be less precise for detailed numerical comparison compared to traditional line charts. Future improvements could include additional interactive controls, filtering options, or alternative views to support more precise analytical exploration.
+
+\subsection{Additional Reference Visualization}
+
+During the exploration phase of the project, we also encountered the visualization shown in Figure~\ref{fig:reference_vis}. Although we did not reproduce or sketch this design ourselves, we found it particularly interesting because of its originality and the way it integrates multiple datasets into a single visual structure.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{sketches-images/another-exp.png}
+    \caption{Example of an experimental radial flow visualization combining urban population trends with national socio-economic indicators.}
+    \label{fig:reference_vis}
+\end{figure}
+
+This visualization combines several advanced visualization techniques. It uses a radial layout where time is encoded around the circular structure, while different socio-economic indicators are represented through flowing shapes and layered radial areas. Population trends for major cities are visualized using curved radial trajectories, creating a visual flow from the center outward. 
+
+Color, radial distance, and layered shapes are used as visual channels to represent different variables such as unemployment rate, GDP per capita, inflation, and urban population growth. The design also emphasizes narrative flow and pattern recognition rather than precise numerical comparison.
+
+Although this visualization is visually complex and difficult to sketch by hand, it served as inspiration for thinking about how demographic and economic indicators can be integrated within a single visual system. It demonstrates how experimental visual forms can reveal relationships between datasets in a visually engaging way.
 % =========================================================
 \section{Discussion}
 
@@ -402,34 +434,5 @@ This homework explored the relationship between urban population change and nati
 \placeholder{Add 1 short paragraph here summarizing your final takeaway.}
 
 % =========================================================
-\section*{Appendix A: Optional Source Image Placeholder}
-
-If you want to include the source screenshot that contains the socio-economic indicator values, you may place it here.
-
-\begin{figure}[H]
-    \centering
-    \fbox{\rule{0pt}{2.7in}\rule{0.9\textwidth}{0pt}}
-    \caption{Placeholder for the source image containing unemployment, GDP per capita, and inflation values.}
-    \label{fig:source-image}
-\end{figure}
-
-\textit{Optional note:} If the image file is stored locally, replace the placeholder above with a command such as:
-
-\begin{verbatim}
-\includegraphics[width=0.85\textwidth]{tuik_indicators.png}
-\end{verbatim}
-
-% =========================================================
-\section*{Appendix B: Practical Notes for Replacing Placeholders}
-
-\begin{itemize}[leftmargin=1.5em]
-    \item To replace an image placeholder, use:
-\begin{verbatim}
-\includegraphics[width=0.9\textwidth]{your-image-file-name}
-\end{verbatim}
-    \item For large hand-drawn sketches, using \verb|[width=0.8\textwidth]| or \verb|[width=0.9\textwidth]| usually works well.
-    \item If you want to place two screenshots side by side, use the \verb|subfigure| environment from the \verb|subcaption| package.
-    \item If your GitHub repository contains a single HTML file, mention that it can be opened directly in a browser.
-\end{itemize}
 
 \end{document}
