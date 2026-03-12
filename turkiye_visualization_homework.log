@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.24)  13 MAR 2026 01:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.24)  13 MAR 2026 01:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -719,6 +719,11 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 66
  (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+[]|[][]$\T1/lmtt/m/n/10.95 https : / / github . com / mufasa-[]349 /
+ []
+
+
 
 [1
 
@@ -732,110 +737,110 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.82 \newpage
+l.83 \newpage
               [1]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 104.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 105.
  (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 118.
+(Font)              <10> on input line 119.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 118.
+(Font)              <7> on input line 119.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 118.
+(Font)              <5> on input line 119.
 
 
 [2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 
 [3]
-<sketches-images/Task1-A.jpeg, id=144, 1471.4975pt x 2055.68pt>
+<sketches-images/Task1-A.jpeg, id=146, 1471.4975pt x 2055.68pt>
 File: sketches-images/Task1-A.jpeg Graphic file (type jpg)
 <use sketches-images/Task1-A.jpeg>
-Package pdftex.def Info: sketches-images/Task1-A.jpeg  used on input line 183.
+Package pdftex.def Info: sketches-images/Task1-A.jpeg  used on input line 184.
 (pdftex.def)             Requested size: 250.7126pt x 350.24516pt.
-<sketches-images/Task1-B.jpeg, id=145, 1361.085pt x 2055.68pt>
+<sketches-images/Task1-B.jpeg, id=147, 1361.085pt x 2055.68pt>
 File: sketches-images/Task1-B.jpeg Graphic file (type jpg)
 <use sketches-images/Task1-B.jpeg>
-Package pdftex.def Info: sketches-images/Task1-B.jpeg  used on input line 194.
+Package pdftex.def Info: sketches-images/Task1-B.jpeg  used on input line 195.
 (pdftex.def)             Requested size: 176.24113pt x 266.1813pt.
 
 
 [4 <./sketches-images/Task1-A.jpeg>]
-<sketches-images/Task2-Sketch1.jpeg, id=151, 1464.47125pt x 2055.68pt>
+<sketches-images/Task2-Sketch1.jpeg, id=153, 1464.47125pt x 2055.68pt>
 File: sketches-images/Task2-Sketch1.jpeg Graphic file (type jpg)
 <use sketches-images/Task2-Sketch1.jpeg>
-Package pdftex.def Info: sketches-images/Task2-Sketch1.jpeg  used on input line 218.
+Package pdftex.def Info: sketches-images/Task2-Sketch1.jpeg  used on input line 219.
 (pdftex.def)             Requested size: 212.89546pt x 298.83446pt.
 
-Overfull \hbox (85.939pt too wide) in paragraph at lines 218--219
+Overfull \hbox (85.939pt too wide) in paragraph at lines 219--220
  [][] 
  []
 
-<sketches-images/Sketch1-code-generated.png, id=152, 1606.0pt x 936.49875pt>
+<sketches-images/Sketch1-code-generated.png, id=154, 1606.0pt x 936.49875pt>
 File: sketches-images/Sketch1-code-generated.png Graphic file (type png)
 <use sketches-images/Sketch1-code-generated.png>
-Package pdftex.def Info: sketches-images/Sketch1-code-generated.png  used on input line 224.
+Package pdftex.def Info: sketches-images/Sketch1-code-generated.png  used on input line 225.
 (pdftex.def)             Requested size: 212.89546pt x 124.1355pt.
 
 
 [5 <./sketches-images/Task1-B.jpeg>]
 
 [6 <./sketches-images/Task2-Sketch1.jpeg> <./sketches-images/Sketch1-code-generated.png>]
-<sketches-images/Task2-Sketch2.jpeg, id=165, 1488.56125pt x 2055.68pt>
+<sketches-images/Task2-Sketch2.jpeg, id=167, 1488.56125pt x 2055.68pt>
 File: sketches-images/Task2-Sketch2.jpeg Graphic file (type jpg)
 <use sketches-images/Task2-Sketch2.jpeg>
-Package pdftex.def Info: sketches-images/Task2-Sketch2.jpeg  used on input line 263.
+Package pdftex.def Info: sketches-images/Task2-Sketch2.jpeg  used on input line 264.
 (pdftex.def)             Requested size: 212.89546pt x 294.00392pt.
 
-Overfull \hbox (81.10846pt too wide) in paragraph at lines 263--264
+Overfull \hbox (81.10846pt too wide) in paragraph at lines 264--265
  [][] 
  []
 
-<sketches-images/skecth2-code-generated.png, id=166, 1606.0pt x 1464.47125pt>
+<sketches-images/skecth2-code-generated.png, id=168, 1606.0pt x 1464.47125pt>
 File: sketches-images/skecth2-code-generated.png Graphic file (type png)
 <use sketches-images/skecth2-code-generated.png>
-Package pdftex.def Info: sketches-images/skecth2-code-generated.png  used on input line 269.
+Package pdftex.def Info: sketches-images/skecth2-code-generated.png  used on input line 270.
 (pdftex.def)             Requested size: 212.89546pt x 194.11972pt.
 
 
 [7 <./sketches-images/Task2-Sketch2.jpeg> <./sketches-images/skecth2-code-generated.png>]
-<sketches-images/Task2-Sketch3.jpeg, id=172, 1502.61375pt x 2055.68pt>
+<sketches-images/Task2-Sketch3.jpeg, id=174, 1502.61375pt x 2055.68pt>
 File: sketches-images/Task2-Sketch3.jpeg Graphic file (type jpg)
 <use sketches-images/Task2-Sketch3.jpeg>
-Package pdftex.def Info: sketches-images/Task2-Sketch3.jpeg  used on input line 309.
+Package pdftex.def Info: sketches-images/Task2-Sketch3.jpeg  used on input line 310.
 (pdftex.def)             Requested size: 212.89546pt x 291.24362pt.
 
-Overfull \hbox (78.34816pt too wide) in paragraph at lines 309--310
+Overfull \hbox (78.34816pt too wide) in paragraph at lines 310--311
  [][] 
  []
 
-<sketches-images/Sketch3-abstract-code.png, id=173, 1606.0pt x 1606.0pt>
+<sketches-images/Sketch3-abstract-code.png, id=175, 1606.0pt x 1606.0pt>
 File: sketches-images/Sketch3-abstract-code.png Graphic file (type png)
 <use sketches-images/Sketch3-abstract-code.png>
-Package pdftex.def Info: sketches-images/Sketch3-abstract-code.png  used on input line 315.
+Package pdftex.def Info: sketches-images/Sketch3-abstract-code.png  used on input line 316.
 (pdftex.def)             Requested size: 212.89546pt x 212.87976pt.
 
 
 [8 <./sketches-images/Task2-Sketch3.jpeg> <./sketches-images/Sketch3-abstract-code.png>]
 
 [9]
-Overfull \hbox (23.51666pt too wide) in paragraph at lines 363--364
+Overfull \hbox (23.51666pt too wide) in paragraph at lines 364--365
 []\T1/lmr/bx/n/10.95 File struc-ture: \T1/lmr/m/n/10.95 The vi-su-al-iza-tion is im-ple-mented as a sin-gle stan-dalone file called \T1/lmtt/m/n/10.95 sketch2.html\T1/lmr/m/n/10.95 .
  []
 
-<sketches-images/html-visual.png, id=183, 1187.43625pt x 814.04124pt>
+<sketches-images/html-visual.png, id=185, 1187.43625pt x 814.04124pt>
 File: sketches-images/html-visual.png Graphic file (type png)
 <use sketches-images/html-visual.png>
-Package pdftex.def Info: sketches-images/html-visual.png  used on input line 392.
+Package pdftex.def Info: sketches-images/html-visual.png  used on input line 393.
 (pdftex.def)             Requested size: 385.0244pt x 263.95161pt.
 
 
 [10]
-<sketches-images/another-exp.png, id=190, 2826.56pt x 1541.76pt>
+<sketches-images/another-exp.png, id=192, 2826.56pt x 1541.76pt>
 File: sketches-images/another-exp.png Graphic file (type png)
 <use sketches-images/another-exp.png>
-Package pdftex.def Info: sketches-images/another-exp.png  used on input line 411.
+Package pdftex.def Info: sketches-images/another-exp.png  used on input line 412.
 (pdftex.def)             Requested size: 452.9679pt x 247.06305pt.
 
 
@@ -860,10 +865,10 @@ Here is how much of TeX's memory you used:
  319 hyphenation exceptions out of 8191
  84i,12n,87p,881b,546s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on turkiye_visualization_homework.pdf (14 pages, 6387530 bytes).
+Output written on turkiye_visualization_homework.pdf (14 pages, 6387791 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 207 compressed objects within 3 object streams
+ 251 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
  47 named destinations out of 1000 (max. 500000)
  239 words of extra memory for PDF output out of 10000 (max. 10000000)
 
