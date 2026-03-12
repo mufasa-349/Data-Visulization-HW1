@@ -34,6 +34,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.6em}
 \onehalfspacing
+\setlength{\headheight}{14pt}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -175,7 +176,7 @@ The three national indicators selected from TÜİK for the same period are unemp
 % =========================================================
 \section{Task 1: Hand-Drawn Exploratory Sketches}
 
-\subsection{Task 1A: Türkiye Map with City-Based Time Series}
+\subsection{Task 1: Türkiye Map with City-Based Time Series}
 
 In this task, a hand-drawn map of Türkiye was created, and the six selected cities were placed and labeled on the map. Next to each city, a small time-series line chart was drawn to show population change between 2019 and 2024.
 
@@ -186,24 +187,20 @@ In this task, a hand-drawn map of Türkiye was created, and the six selected cit
     \label{fig:task1a-map}
 \end{figure}
 
-\subsection{Task 1B: Three Socio-Economic Indicators as Line Charts}
+\subsection{Task 1: Three Socio-Economic Indicators as Line Charts}
 
 In this task, the three national indicators were drawn as separate line charts on paper for the same time period (Unfortunately, the image did not fit on this page; please see the next page.).
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.58\textwidth,height=0.38\textheight,keepaspectratio]{sketches-images/Task1-B.jpeg}
-    \caption{Hand-drawn line charts of unemployment rate, GDP per capita, and inflation (Task 1B).}
+    \caption{Hand-drawn line charts of unemployment rate, GDP per capita and inflation.}
     \label{fig:task1b-indicators}
 \end{figure}
 
-\textbf{Short explanation placeholder:}
+\subsection{Task 1: Formulated Question}
 
-\placeholder{Write a short explanation of why line charts were chosen, what temporal trends are visible, and how these charts support later comparison.}
-
-\subsection{Task 1C: Formulated Question}
-
-Based on Task 1A and Task 1B, the following question was formulated:
+Based on Task 1, the following question was formulated:
 
 \begin{quote}
 \textbf{What relationship exists between population growth in major Turkish cities and national socio-economic indicators such as unemployment rate, GDP per capita, and inflation between 2019 and 2024?}
@@ -211,48 +208,53 @@ Based on Task 1A and Task 1B, the following question was formulated:
 
 \textbf{Why this question?}
 
-\placeholder{Write 1--2 paragraphs explaining why this question naturally emerges from the data and why visualization is needed to answer it effectively.}
+This question allows us to visually explore possible relationships between urban population and socio-economic indicators such as unemployment, GDP per capita, and inflation
 
 % =========================================================
-\section{Task 2: Three Visualization Sketches}
-
-This section presents three visualization sketches designed to answer the main question. One of the sketches is intentionally more abstract, as requested in the homework. For each sketch, placeholders are provided for the image and explanation.
-
-% -------------------------
-\subsection{Sketch 1: Multi-Line Comparison View}
+\section{Task 2: Sketch 1: Multi-Line Comparison View}
 
 \begin{figure}[H]
+\centering
+\begin{subfigure}{0.47\textwidth}
     \centering
-    \fbox{\rule{0pt}{2.4in}\rule{0.9\textwidth}{0pt}}
-    \caption{Placeholder for Sketch 1 image. Insert the hand-drawn or digital sketch here.}
-    \label{fig:sketch1}
+    \includegraphics[width=\linewidth,angle=90]{sketches-images/Task2-Sketch1.jpeg}
+    \caption{Hand-drawn sketch of the visualization concept.}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.47\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{sketches-images/Sketch1-code-generated.png}
+    \caption{Programmatically generated version used to clarify the design.}
+\end{subfigure}
+\caption{Multi-line comparison visualization showing the relationship between average population growth and national socio-economic indicators between 2019 and 2024.}
+\label{fig:sketch1}
 \end{figure}
 
-\textbf{Visualization type:} \placeholder{Example: multi-line chart / coordinated line chart / small multiples}
+\textbf{Visualization type:} Multi-line comparison chart with dual-axis scaling
 
-\textbf{Goal:} \placeholder{Explain what this sketch tries to reveal.}
+\textbf{Goal:}  
+The goal of this visualization is to compare temporal trends between population growth in major Turkish cities and national socio-economic indicators such as unemployment rate, GDP per capita, and inflation. By aligning all variables along the same timeline, the visualization helps reveal whether changes in economic conditions coincide with changes in population trends.
 
 \textbf{Design rationale:}
 
-\placeholder{Explain what variables are encoded using position, color, slope, or grouping. Mention why this representation is appropriate for temporal comparison. Use class terminology such as marks, channels, encoding, scale, comparison, trend, overview, or correlation.}
+This visualization uses a multi-line chart because it is effective for showing temporal patterns and comparing multiple variables over time. The horizontal axis encodes the time dimension (2019–2024), while vertical position encodes the magnitude of each variable. Different colors represent different indicators, allowing viewers to easily distinguish the trends. Lines and connected points act as visual marks that emphasize direction and slope, making increases or decreases clearly visible. A secondary axis is used for the population index so that variables with different scales can still be compared within the same view. This encoding enables quick identification of correlations, divergences, and turning points between demographic and economic indicators.
 
 \textbf{Where this could be useful:}
 
-\placeholder{Write where or for whom this visualization would be useful.}
+This visualization could be useful for policymakers, economists, or researchers interested in understanding how demographic changes in major cities relate to broader economic conditions. It can also support exploratory analysis in educational or analytical settings.
 
 \textbf{Strengths:}
 \begin{itemize}[leftmargin=1.5em]
-    \item \placeholder{Strength 1}
-    \item \placeholder{Strength 2}
-    \item \placeholder{Strength 3}
+    \item Clearly communicates trends and changes over time.
+    \item Enables direct comparison between multiple indicators.
+    \item Makes it easier to visually detect possible correlations between variables.
 \end{itemize}
 
 \textbf{Weaknesses:}
 \begin{itemize}[leftmargin=1.5em]
-    \item \placeholder{Weakness 1}
-    \item \placeholder{Weakness 2}
+    \item Dual-axis charts can sometimes be misinterpreted if scales are not carefully labeled.
+    \item Too many variables could reduce readability and visual clarity.
 \end{itemize}
-
 % -------------------------
 \subsection{Sketch 2: Map-Based or Small-Multiple Analytical View}
 
